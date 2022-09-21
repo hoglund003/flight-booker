@@ -1,0 +1,20 @@
+<h1>Flight booker</h1>
+
+<%= form_with model: @flight, method: :get do |f| %>
+
+  <%= f.label "Travel from:" %>
+  <%= f.select(:departing_airport_id, @airports) %>
+
+  <%= f.label "Travel to:" %>
+  <%= f.select(:arriving_airport_id, @airports) %>
+  
+  <%= f.label "Number of passangers:" %>
+  <%= f.select(:number_of_passengers, @passengers) %>
+
+  <%= f.label "Select date" %>
+  <%= f.select(:deprature_time, @dates) %>
+
+  <%= f.submit "Search" %>
+
+<% end %>
+
