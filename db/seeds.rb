@@ -44,14 +44,14 @@ codes = ["ABR",
 Airport.delete_all
 Flight.delete_all
 
-30.times do
+4.times do
   Airport.create(airport_code: codes.sample)
 end
 
-100.times do 
+500.times do 
 
   departure = Airport.pluck(:id).sample
-  arrival = Airport.pluck(:id).sample
+  arrival = Airport.where.not(id: departure).pluck(:id).sample
   datetime = rand(2.days.from_now.to_i..14.days.from_now.to_i)
   duration = 1.hour.to_i
   Flight.create(
