@@ -18,3 +18,23 @@
 
 <% end %>
 
+<% if @results.any? %>
+  <table>
+    <thead>
+      <td>From</td>
+      <td>To</td>
+      <td>Date</td>
+      <td>Time</td>
+    </thead>
+    <tbody>
+      <% @results.each do |flight| %>
+        <tr>
+          <td><%= flight.departure_airport.airport_code %></td>
+          <td><%= flight.arrival_airport.airport_code %></td>
+          <td><%= Time.at(flight.departure_time).strftime('%d.%m.%Y')  %></td>
+          <td><%= Time.at(flight.departure_time).strftime('%H:%m')  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
