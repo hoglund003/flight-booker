@@ -1,6 +1,7 @@
 <h1>Add passenger information</h1>
 
 <%= form_with model: @booking, method: :post do |f| %>
+  <%= f.hidden_field :flight_id, value: params[:selected_flight] %>
     <div class="passenger-container">
       <% count = 0 %>
       <%= f.fields_for :passengers do |sub_f| %>
