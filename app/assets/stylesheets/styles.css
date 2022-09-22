@@ -4,6 +4,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.container {
+  margin: 0 3rem;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
