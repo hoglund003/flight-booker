@@ -1,3 +1,7 @@
+:root {
+  --prime-blue: rgba(55, 55, 255, 0.849);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -6,6 +10,7 @@
 
 .container {
   margin: 0 3rem;
+  margin-bottom: 1rem;
 }
 
 .grid-container {
@@ -60,7 +65,7 @@
 
 select {
   font-size: 1.4rem;
-  background-color: rgba(55, 55, 255, 0.849);
+  background-color: var(--prime-blue);
   color: white;
 
   border: none;
@@ -78,8 +83,17 @@ label {
 table {
   background-color: rgb(232, 232, 232);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 td {
   padding: 0.4rem;
+}
+
+.continue-button {
+  padding: 0.4rem;
+  font-size: 1.4rem;
+  border: none;
+  background-color: var(--prime-blue);
+  color: white;
 }
