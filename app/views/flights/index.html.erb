@@ -26,6 +26,7 @@
       <td>To</td>
       <td>Date</td>
       <td>Time</td>
+      <td>Flight Duration</td>
     </thead>
     <tbody>
       <% @results.each do |flight| %>
@@ -34,6 +35,7 @@
           <td><%= flight.arrival_airport.airport_code %></td>
           <td><%= Time.at(flight.departure_time).strftime('%d.%m.%Y')  %></td>
           <td><%= Time.at(flight.departure_time).strftime('%H:%m')  %></td>
+          <td><%= Time.at(flight.flight_duration).strftime('%H:%m')  %></td>
         </tr>
       <% end %>
     </tbody>
