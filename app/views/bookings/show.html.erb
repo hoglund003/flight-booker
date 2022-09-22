@@ -1,0 +1,12 @@
+<h1>Your Booking</h1>
+
+<%= render "flight_info", flight: @flight %>
+
+<div class="passenger-container">
+  <% count = 0 %>
+  <% @booking.passengers.each do |passenger| %>
+    <span>Passenger #<%= count += 1 %></span>
+    <span>Name: <%= passenger.name %></span>
+    <span>Email address: <%= passenger.email %></span>
+  <% end %>
+</div>
