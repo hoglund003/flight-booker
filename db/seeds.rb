@@ -48,16 +48,18 @@ Flight.delete_all
   Airport.create(airport_code: codes.sample)
 end
 
-500.times do 
-
-  departure = Airport.pluck(:id).sample
+Airport.all.each do |airport|
+  departure = airport.id
   arrival = Airport.where.not(id: departure).pluck(:id).sample
-  datetime = rand(2.days.from_now.to_i..14.days.from_now.to_i)
-  duration = 1.hour.to_i
-  Flight.create(
-    departure_airport_id: departure,
-    arrival_airport_id: arrival,
-    departure_time: datetime,
-    flight_duration: duration
-  )
+  duration = rand(1..5).days.to_i
+
+  400.times do 
+    datetime = rand(2.days.from_now.to_i..14.days.from_now.to_i)
+    Flight.create(
+      departure_airport_id: departure,
+      arrival_airport_id: arrival,
+      departure_time: datetime,
+      flight_duration: duration
+    )
+  end
 end
