@@ -33,6 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_22_081031) do
   end
 
   create_table "passengers", force: :cascade do |t|
+    t.integer "booking_id"
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
