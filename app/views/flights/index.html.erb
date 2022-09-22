@@ -1,20 +1,21 @@
 <h1>Flight booker</h1>
 
 <%= form_with model: @flight, method: :get do |f| %>
+  <div class="grid-container">
+    <%= f.label "Travel from:", id: "label-from" %>
+    <%= f.select(:departure_airport_id, @airports)%>
 
-  <%= f.label "Travel from:" %>
-  <%= f.select(:departure_airport_id, @airports) %>
+    <%= f.label "Travel to:", id: "label-to" %>
+    <%= f.select(:arrival_airport_id, @airports)%>
+    
+    <%= f.label "Number of passangers:", id: "label-passengers" %>
+    <%= f.select(:number_of_passengers, @passengers)%>
 
-  <%= f.label "Travel to:" %>
-  <%= f.select(:arrival_airport_id, @airports) %>
-  
-  <%= f.label "Number of passangers:" %>
-  <%= f.select(:number_of_passengers, @passengers) %>
+    <%= f.label "Select date:", id: "label-date" %>
+    <%= f.select(:departure_time, @dates)%>
 
-  <%= f.label "Select date" %>
-  <%= f.select(:departure_time, @dates) %>
-
-  <%= f.submit "Search" %>
+    <%= f.submit "Search", id: "submit" %>
+  </div>
 
 <% end %>
 
