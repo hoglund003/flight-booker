@@ -1,0 +1,16 @@
+<h1>Add passenger information</h1>
+
+<%= form_with model: @booking, method: :post do |f| %>
+    <div class="passenger-container">
+      <% count = 0 %>
+      <%= f.fields_for :passengers do |sub_f| %>
+        Passenger #<%= count += 1 %>
+        <%= sub_f.label "Full Name:" %>
+        <%= sub_f.text_field :name, placeholder: "e.g.: Joe Doe" %>
+
+        <%= sub_f.label "Email address:" %>
+        <%= sub_f.text_field :email, placeholder: "e.g.: joe@doe.com" %>
+      <% end %>
+    </div>
+  <%= f.submit "Continue", class: "continue-button" %>
+<% end %>
