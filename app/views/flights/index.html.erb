@@ -20,24 +20,29 @@
 <% end %>
 
 <% if @results.any? %>
-  <table>
-    <thead>
-      <td>From</td>
-      <td>To</td>
-      <td>Date</td>
-      <td>Time</td>
-      <td>Flight Duration</td>
-    </thead>
-    <tbody>
-      <% @results.each do |flight| %>
-        <tr>
-          <td><%= flight.departure_airport.airport_code %></td>
-          <td><%= flight.arrival_airport.airport_code %></td>
-          <td><%= Time.at(flight.departure_time).strftime('%d.%m.%Y')  %></td>
-          <td><%= Time.at(flight.departure_time).strftime('%H:%m')  %></td>
-          <td><%= Time.at(flight.flight_duration).strftime('%H:%m')  %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= form_with do |f| %>
+    <table>
+      <thead>
+        <td>From</td>
+        <td>To</td>
+        <td>Date</td>
+        <td>Time</td>
+        <td>Flight Duration</td>
+        <td>Select</td>
+      </thead>
+      <tbody>
+          <% @results.each do |flight| %>
+            <tr>
+              <td><%= flight.departure_airport.airport_code %></td>
+              <td><%= flight.arrival_airport.airport_code %></td>
+              <td><%= Time.at(flight.departure_time).strftime('%d.%m.%Y')  %></td>
+              <td><%= Time.at(flight.departure_time).strftime('%H:%m')  %></td>
+              <td><%= Time.at(flight.flight_duration).strftime('%H:%m')  %></td>
+              <td><%= f.radio_button :selected_flight, flight.id  %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+    <%= f.submit "Continue", class: "continue-button" %>
+  <% end %>
 <% end %>
