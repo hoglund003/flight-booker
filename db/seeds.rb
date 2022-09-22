@@ -51,7 +51,7 @@ end
 Airport.all.each do |airport|
   departure = airport.id
   arrival = Airport.where.not(id: departure).pluck(:id).sample
-  duration = rand(1..5).days.to_i
+  duration = rand(60..300).minutes.to_i
 
   400.times do 
     datetime = rand(2.days.from_now.to_i..14.days.from_now.to_i)
