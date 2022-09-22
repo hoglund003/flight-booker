@@ -20,7 +20,8 @@
 <% end %>
 
 <% if @results.any? %>
-  <%= form_with do |f| %>
+  <%= form_with url: 'bookings/new', method: :get do |f| %>
+    <%= f.hidden_field :number_of_passengers, value: params[:number_of_passengers] %>
     <table>
       <thead>
         <td>From</td>
