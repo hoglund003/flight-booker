@@ -37,6 +37,16 @@
   border: 2px solid rgb(143, 143, 143);
 }
 
+.flight-info {
+  padding: 1rem;
+
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.2);
+
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+}
+
 #label-from {
   grid-column: 1;
   grid-row: 1;

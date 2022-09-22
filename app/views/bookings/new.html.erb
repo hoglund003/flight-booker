@@ -1,5 +1,21 @@
 <h1>Add passenger information</h1>
 
+<div class="flight-info">
+  <span>From:</span>
+  <span>To:</span>
+  <span>Departure Time:</span>
+  <span>Duration:</span>
+  <span>Arrival Time:</span>
+
+  <span><%= @flight.departure_airport.airport_code %></span>
+  <span><%= @flight.arrival_airport.airport_code %></span>
+  <span><%= Time.at(@flight.departure_time).strftime('%H:%M, %a. %e. of %B') %></span>
+  <span><%= Time.at(@flight.flight_duration).strftime('%H:%M') %></span>
+  <span>
+    <%= Time.at(@flight.departure_time - @flight.flight_duration).strftime('%H:%M, %a. %e. of %B') %>
+  </span>
+</div>
+
 <%= form_with model: @booking, method: :post do |f| %>
   <%= f.hidden_field :flight_id, value: params[:selected_flight] %>
     <div class="passenger-container">
