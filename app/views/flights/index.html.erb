@@ -36,7 +36,7 @@
             <tr>
               <td><%= flight.departure_airport.airport_code %></td>
               <td><%= flight.arrival_airport.airport_code %></td>
-              <td><%= Time.at(flight.departure_time).strftime('%d.%M.%Y')  %></td>
+              <td><%= Time.at(flight.departure_time).strftime('%d.%m.%Y')  %></td>
               <td><%= Time.at(flight.departure_time).strftime('%H:%M')  %></td>
               <td><%= Time.at(flight.flight_duration).strftime('%H:%M')  %></td>
               <td><%= f.radio_button :selected_flight, flight.id  %></td>
