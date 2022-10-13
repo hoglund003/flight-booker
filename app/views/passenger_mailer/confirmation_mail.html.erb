@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="text/html">
+  <title>Confirmation</title>
+</head>
+<body>
+  <style>
+    :root {
+      --prime-blue: rgba(55, 55, 255, 0.849);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .flight-info {
+      padding: 1rem;
+
+      border-radius: 20px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.2);
+
+      display: grid;
+      grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+    }
+  </style>
+
+  <h1>Welcome aboard!</h1>
+
+  <p>We confirm that your ticket has been booked.</p>
+  <%= render "bookings/flight_info", flight: @passenger.booking.flight %>
+  
+</body>
+</html>
